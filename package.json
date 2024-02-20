@@ -1,0 +1,78 @@
+{
+  "name": "bun-notebook",
+  "displayName": "Bun Notebook",
+  "description": "Bun Notebook is a notebook for the Bun language.",
+  "version": "0.0.1",
+  "main": "dist/extension.js",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/artokun/bun-notebook.git"
+  },
+  "author": {
+    "name": "Art Longbottom",
+    "email": "art.longbottom.jr@gmail.com"
+  },
+  "publisher": "artokun",
+  "scripts": {
+    "build": "node scripts/build.mjs",
+    "pretest": "bun run build",
+    "test": "node scripts/test.mjs",
+    "prepublish": "npm version patch && bun run build",
+    "publish": "cd extension && bunx vsce publish"
+  },
+  "engines": {
+    "vscode": "^1.62.0"
+  },
+  "galleryBanner": {
+    "color": "#3B3738",
+    "theme": "dark"
+  },
+  "homepage": "https://github.com/artokun/bun-notebook",
+  "icon": "assets/icon.png",
+  "keywords": [
+    "bun",
+    "node.js",
+    "javascript",
+    "typescript",
+    "notebook"
+  ],
+  "categories": [
+    "Other",
+    "Data Science",
+    "Machine Learning",
+    "Notebooks",
+    "Visualization"
+  ],
+  "capabilities": {
+    "untrustedWorkspaces": {
+      "supported": true
+    },
+    "virtualWorkspaces": true
+  },
+  "activationEvents": [],
+  "devDependencies": {
+    "@types/bun": "latest",
+    "@types/vscode": "^1.62.0",
+    "@vscode/debugadapter": "^1.64.0",
+    "@vscode/debugadapter-testsupport": "^1.64.0",
+    "@vscode/vsce": "^2.23.0",
+    "esbuild": "^0.20.1",
+    "typescript": "^5.3.3"
+  },
+  "peerDependencies": {
+    "typescript": "^5.0.0"
+  },
+  "contributes": {
+    "notebooks": [
+      {
+        "type": "bun-notebook",
+        "displayName": "Bun Notebook",
+        "selector": [
+          {
+            "filenamePattern": "*.bnb"
+          }
+        ]
+      }
+    ]
+  }
+}
